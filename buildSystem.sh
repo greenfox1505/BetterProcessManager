@@ -77,15 +77,16 @@ linuxEnv()
 
 buildAll()
 {
-    $SCRIPT --release --windows
-    $SCRIPT --release --linux
-    $SCRIPT --debug --windows
-    $SCRIPT --debug --linux
     createGDExtensionFile
+    $SCRIPT --release --windows
+    $SCRIPT --debug --windows
+    $SCRIPT --release --linux
+    $SCRIPT --debug --linux
 }
 
 createGDExtensionFile()
 {
+    mkdir -p build
 cat << EOF > ./build/$EXTENTION_NAME.gdextension
 [gd_resource type="GDExtension" format=3 uid="uid://d24oh5dglauhl"]
 
